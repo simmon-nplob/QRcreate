@@ -1,0 +1,13 @@
+Use of quearcode is fairly straightforward.
+
+Enter a string to convert into the text box, and either 
+press Enter or click Generate.  A png of the desired QR Code 
+will open in your default image viewer, from which you 
+should be able to save or manipulate it further.
+
+You can also click Encode file..., and select a small file.
+If it can be QR encoded, one will be generated.  If not, you will be
+informed.
+
+A set of sliders controls the error correction level, box size in pizels,
+and border size in boxes.
