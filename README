@@ -12,12 +12,24 @@
         $ git clone https://github.com/simmon-nplob/QRcreate.git
         $ cd QRcreate
         $ chmod u+x QRcreate
-        $ ./QRcreate 
+        $ ./QRcreate
 
-    - 전체 사용자인 경우(RHEL 계열)
+    - 전체 사용자 실행 허용
+        $ su
+        $ sudo chmod a+x QRcreate
+        $ sudo QRcreate /usr/bin/
 
-        # dnf install qrcode
-        # rpm -Uvh QRcreate-0.2-7H.x86_64.rpm
+    - rpm을 이용한 경우(RHEL 계열)
+
+        $ sudo dnf install qrcode
+        $ sudo rpm -Uvh QRcreate-0.2-7H.x86_64.rpm
+
+    - Debian/Ubuntu/Kali
+        $ sudo apt install python3-qrcode 
+        $ git clone https://github.com/simmon-nplob/QRcreate.git
+        $ cd QRcreate
+        $ sudo chmod a+x QRcreate
+        $ sudo cp QRcreate /usr/bin
 
     * 한글화한 QR 코드 생성용 프로그램입니다.
 
