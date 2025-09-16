@@ -30,7 +30,7 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GdkPixbuf
 import qrcode
 
-VERSION = '0.2.6H'
+VERSION = '0.2.7H'
 
 if os.path.exists('logo.png'):
     LOGO_PATH = 'logo.png'
