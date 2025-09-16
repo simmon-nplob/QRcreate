@@ -1,28 +1,30 @@
 
-QR 코드 생성용 프로그램입니다.
-해당 프로그램은 quearcode를 이용하여 한글화 및 사용자 정의를 통해 보다 쉽게 사용 할 수 있도록 한글화하였습니다.
-해당 사용 OS는 F42 - 페도라 리눅스 KDE 환경 / 필요 꾸러미 python3-qrcode-8.0-3.fc42.noarch
+    QR 코드 생성용 프로그램입니다.
 
-* 사용법
+    해당 프로그램은 quearcode를 이용하여 한글화 및 사용자 정의를 통해 보다 쉽게 사용 할 수 있도록 한글화하였습니다.
+    해당 사용 OS는 F42 - 페도라 리눅스 KDE 환경 / 필요 꾸러미 python3-qrcode-8.0-3.fc42.noarch
 
-$ git clone https://github.com/simmon-nplob/QRcreate.git
-$ cd QRcreate
-$ chmod u+x QRcreate
-$ ./QRcreate 
+    * 사용법
+
+    $ pip install qrcode
+    $ git clone https://github.com/simmon-nplob/QRcreate.git
+    $ cd QRcreate
+    $ chmod u+x QRcreate
+    $ ./QRcreate 
 
 
-* 한글화한 QR 코드 생성용 프로그램입니다.
+    * 한글화한 QR 코드 생성용 프로그램입니다.
 
-Use of quearcode is fairly straightforward.
+    Use of quearcode is fairly straightforward.
 
-Enter a string to convert into the text box, and either 
-press Enter or click Generate.  A png of the desired QR Code 
-will open in your default image viewer, from which you 
-should be able to save or manipulate it further.
+    Enter a string to convert into the text box, and either 
+    press Enter or click Generate.  A png of the desired QR Code 
+    will open in your default image viewer, from which you 
+    should be able to save or manipulate it further.
 
-You can also click Encode file..., and select a small file.
-If it can be QR encoded, one will be generated.  If not, you will be
-informed.
+    You can also click Encode file..., and select a small file.
+    If it can be QR encoded, one will be generated.  If not, you will be
+    informed.
 
-A set of sliders controls the error correction level, box size in pizels,
-and border size in boxes.
+    A set of sliders controls the error correction level, box size in pizels,
+    and border size in boxes.
