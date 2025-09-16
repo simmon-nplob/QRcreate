@@ -5,13 +5,19 @@
     해당 사용 OS는 F42 - 페도라 리눅스 KDE 환경 / 필요 꾸러미 python3-qrcode-8.0-3.fc42.noarch
 
     * 사용법
+    - 일반 사용자 동작이 필요한 경우
+    
+        $ pip install qrcode
 
-    $ pip install qrcode
-    $ git clone https://github.com/simmon-nplob/QRcreate.git
-    $ cd QRcreate
-    $ chmod u+x QRcreate
-    $ ./QRcreate 
+        $ git clone https://github.com/simmon-nplob/QRcreate.git
+        $ cd QRcreate
+        $ chmod u+x QRcreate
+        $ ./QRcreate 
 
+    - 전체 사용자인 경우(RHEL 계열)
+
+        # dnf install qrcode
+        # rpm -Uvh QRcreate-0.2-7H.x86_64.rpm
 
     * 한글화한 QR 코드 생성용 프로그램입니다.
 
