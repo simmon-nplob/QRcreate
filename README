@@ -13,13 +13,19 @@
         $ chmod u+x QRcreate
         $ ./QRcreate 
 
-    - 전체 사용자인 경우(RHEL 계열)
+    - RHEL 계열 설치 및 사용
 
-        # dnf install qrcode
-        # rpm -Uvh QRcreate-2.4.x86_64.rpm
+        $ sudo dnf install qrcode
+        $ sudo rpm -Uvh QRcreate-2.4.x86_64.rpm
 
-    * 한글화한 QR 코드 생성용 프로그램입니다.
-     - RPM 설치 디렉토리  /usr/share/QRcreate-2
+    - Debian 계열 설치 및 사용(Ubuntu, Debian, Kali, Mint)
+
+        $ sudo dpkg -i qrcreate_2-5_amd64.deb
+
+    * 운영체제 별 설치라일 (rpm, deb)의 기본 폴더는 다음과 같습니다.
+
+    - RPM 설치 디렉토리  /usr/share/QRcreate-2
+
 
     * 파일 저장시에 날짜와 시간이 파일에 붙여 넣어 중복되는 문제를 해결하였습니다.
 
