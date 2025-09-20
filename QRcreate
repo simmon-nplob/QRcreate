@@ -22,6 +22,7 @@
 
 import tempfile
 import os
+import datetime
 import glob
 from shutil import copyfile
 import gi
@@ -30,7 +31,7 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GdkPixbuf
 import qrcode
 
-VERSION = '0.2.7H'
+VERSION = '2.4.1H'
 
 if os.path.exists('logo.png'):
     LOGO_PATH = 'logo.png'
@@ -39,7 +40,7 @@ elif os.path.exists('/usr/share/QRcreate/logo.png'):
 elif os.path.exists('/app/share/QRcreate/logo.png'):
     LOGO_PATH = '/app/share/QRcreate/logo.png'
 else:
-    print("Logo missing.")
+    print("Logo missing, it's mess up!")
     exit()
 
 class QRcreate:
@@ -49,7 +50,7 @@ class QRcreate:
     # pylint: disable=unused-argument
     def delete_event(self, widget, event, data=None):
         """ Quit button """
-        for temp in glob.glob(tempfile.gettempdir() + "/QRcreate*.png"):
+        for temp in glob.glob(tempfile.gettempdir() + "/QRmate*.png"):
             os.unlink(temp)
         Gtk.main_quit()
         return False
@@ -84,7 +85,7 @@ class QRcreate:
             self.messdial = Gtk.MessageDialog(parent=self.files, message_format=message, \
                 destroy_with_parent=True, type=Gtk.MessageType.ERROR, \
                 buttons=Gtk.ButtonsType.CLOSE)
-            self.messdial.set_title("파일 오류")
+            self.messdial.set_title("파일오류")
             self.messdial.run()
             self.messdial.destroy()
         else:
@@ -111,9 +112,9 @@ class QRcreate:
 
             img = qr_image.make_image()
 
-            for temp in glob.glob(tempfile.gettempdir() + "/sample*.png"):
+            for temp in glob.glob(tempfile.gettempdir() + "/QRmate*.png"):
                 os.unlink(temp)
-            tempf, name = tempfile.mkstemp(suffix=".png", prefix="QRcreate")
+            tempf, name = tempfile.mkstemp(suffix=".png", prefix="QRmate")
             img.save(name)
             self.imgdial("clicked", name)
             os.close(tempf)
@@ -126,7 +127,7 @@ class QRcreate:
             Gtk.ResponseType.OK)
         self.files.set_filename("~/")
         self.files.set_transient_for(self.window)
-        self.files.set_title("파일 선택")
+        self.files.set_title("파일선택")
         self.response = self.files.run()
         if self.response == Gtk.ResponseType.OK:
             self.runthing(self.response, self.files, self.errorscale, \
@@ -138,10 +139,15 @@ class QRcreate:
     def savedial(self, widget, event, imagepath):
         """ File selection """
         # pylint: disable=attribute-defined-outside-init
-        self.saves = Gtk.FileChooserDialog("파일 선택", self.window, \
+        now = datetime.datetime.now()
+        date_str = now.strftime("%Y%m%d")  # YearMonthDay
+        time_str = now.strftime("%H%M%S")  # HourMinuteSecond
+        home_dir = os.path.expanduser("~")  # Get the user's home directory
+        fixname = os.path.join(home_dir, f"QRmate_{date_str}_{time_str}.png")
+        self.saves = Gtk.FileChooserDialog("파일선택", self.window, \
             Gtk.FileChooserAction.SAVE, (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, \
             Gtk.STOCK_NEW, Gtk.ResponseType.OK))
-        self.saves.set_current_name("sample.png")
+        self.saves.set_current_name(fixname)
         self.saves.set_do_overwrite_confirmation(True)
         self.saves.set_transient_for(self.window)
         response = self.saves.run()
@@ -160,7 +166,7 @@ class QRcreate:
         qrs.set_title("QRcreate Hangul by simmon")
         generated = Gtk.Image()
         pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(filename=imagepath, \
-            width=400, height=400, preserve_aspect_ratio=True)
+            width=300, height=300, preserve_aspect_ratio=True)
         generated = Gtk.Image.new_from_pixbuf(pixbuf)
         qrs.set_image(generated)
 
@@ -203,9 +209,9 @@ class QRcreate:
 
         img = qr_image.make_image()
 
-        for temp in glob.glob(tempfile.gettempdir() + "/QRcreate*.png"):
+        for temp in glob.glob(tempfile.gettempdir() + "/QRmate*.png"):
             os.unlink(temp)
-        tempf, name = tempfile.mkstemp(suffix=".png", prefix="QRcreate")
+        tempf, name = tempfile.mkstemp(suffix=".png", prefix="QRmate")
         img.save(name)
         self.imgdial("clicked", name)
         os.close(tempf)
@@ -229,7 +235,7 @@ class QRcreate:
         self.logo.set_tooltip_markup("QR 사진")
         self.rightbox.pack_start(self.logo, True, True, 0)
 
-        self.errorlabel = Gtk.Label(label="오류 정정")
+        self.errorlabel = Gtk.Label(label="보정방식-오류정정")
         self.errorlabel.set_tooltip_markup("코드 내장 오류 수정량")
         self.rightbox.pack_start(self.errorlabel, True, True, 0)
 

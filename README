@@ -1,5 +1,4 @@
-
-    QR 코드 생성용 프로그램입니다.
+  QR 코드 생성용 프로그램입니다.
 
     해당 프로그램은 quearcode를 이용하여 한글화 및 사용자 정의를 통해 보다 쉽게 사용 할 수 있도록 한글화하였습니다.
     해당 사용 OS는 F42 - 페도라 리눅스 KDE 환경 / 필요 꾸러미 python3-qrcode-8.0-3.fc42.noarch
@@ -12,18 +11,17 @@
         $ git clone https://github.com/simmon-nplob/QRcreate.git
         $ cd QRcreate
         $ chmod u+x QRcreate
-        $ ./QRcreate
+        $ ./QRcreate 
 
-    - Debian/Ubuntu/Kali
-        $ sudo apt install python3-qrcode 
-        $ git clone https://github.com/simmon-nplob/QRcreate.git
-        $ cd QRcreate
-        $ chmod a+x QRcreate
-        $ ./QRcreate
+    - 전체 사용자인 경우(RHEL 계열)
+
+        # dnf install qrcode
+        # rpm -Uvh QRcreate-2.4.x86_64.rpm
 
     * 한글화한 QR 코드 생성용 프로그램입니다.
+     - RPM 설치 디렉토리  /usr/share/QRcreate-2
 
-    * 일반 rpm 설치를 위해 F42/RHEL10 지원을 추가하였습니다.
+    * 파일 저장시에 날짜와 시간이 파일에 붙여 넣어 중복되는 문제를 해결하였습니다.
 
     Use of quearcode is fairly straightforward.
 
