@@ -23,6 +23,8 @@
 
     * 한글화한 QR 코드 생성용 프로그램입니다.
 
+    * 일반 rpm 설치를 위해 F42/RHEL10 지원을 추가하였습니다.
+
     Use of quearcode is fairly straightforward.
 
     Enter a string to convert into the text box, and either 
